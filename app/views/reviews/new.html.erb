@@ -1,0 +1,27 @@
+<h1><%= @title %></h1>
+
+<% if @form_error %>
+    <% @form_error.each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_for [@restaurant, @review] do |f| %>
+
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body, "Review" %><br />
+    <%= f.text_field :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Review" %>
+  </div>
+
+  </br><%= link_to 'Back', restaurant_path(@restaurant) %>
+
+<% end %>
